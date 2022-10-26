@@ -6,6 +6,7 @@ import { AuthContext } from "../../UserContext/UserContext";
 
 const Header = () => {
   const {user} = useContext(AuthContext)
+  console.log(user)
   return (
     <div>
      
@@ -21,6 +22,7 @@ const Header = () => {
       <Link className="btn btn-ghost normal-case text-xl" to="/blog">Blog</Link>
       <Link className="btn btn-ghost normal-case text-xl" to="/login">Login</Link>
       <Link className="btn btn-ghost normal-case text-xl" to="/register">Register</Link>
+      <span>{user?.email}</span>
        </div>
           
 

@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../UserContext/UserContext";
 
 const Login = () => {
   const { googlePropup, githubPopup, login } = useContext(AuthContext);
+  const navigate = useNavigate()
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +20,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate('/')
       })
       .catch((error) => {
         console.error("error", error);
@@ -29,6 +32,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate('/login')
       })
       .catch((error) => {
         console.error("error", error);

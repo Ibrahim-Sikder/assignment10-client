@@ -34,37 +34,68 @@ const Register = () => {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit} className="w-50 loginForm">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Full Name</Form.Label>
-          <Form.Control type="name" name="name" placeholder="Full Name" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Photo URL </Form.Label>
-          <Form.Control type="photoURL" name="photo" placeholder="Photo URL" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-        <div>
-          <Link to="/login">
-            <span>Login now </span>
-          </Link>
+      <div className="hero min-h-screen bg-base-200 w-50">
+        <div className="hero-content flex-col ">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Register now!</h1>
+          </div>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="name" name="name"
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="photo" name="photo"
+                  placeholder="Photo URL"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email" name="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password" name="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+                <label className="label">
+                  <Link to="/login" className="label-text-alt link link-hover">
+                   All ready have an account. 
+                  </Link>
+                </label>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Register</button>
+              
+              </div>
+           
+            </form>
+          </div>
+          
         </div>
-        <Button variant="info" type="submit">
-          Register
-        </Button>
-      </Form>
+      </div>
     </div>
   );
 };

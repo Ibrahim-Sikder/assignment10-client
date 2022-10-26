@@ -1,9 +1,5 @@
 
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Button from 'react-bootstrap/Button';
 import './Header.css'
 import { useContext } from "react";
 import { AuthContext } from "../../UserContext/UserContext";
@@ -12,35 +8,22 @@ const Header = () => {
   const {user} = useContext(AuthContext)
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-        <div className="navBar">
-          <div>
-            <img className="logo" src="https://cdn2.vectorstock.com/i/1000x1000/70/01/mobile-learning-logo-design-template-vector-20727001.jpg" alt="logo" />
-          <Navbar.Brand href="#home">Learning English</Navbar.Brand>
-        </div>
-          <div>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="">
-              <Link to="/home">Home</Link>
-              <Link to="/course">Courses</Link>
-              <Link to="/faq">FAQ</Link>
-              <Link to="/blog">Blog</Link>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-              <div>
-              <Button variant="outline-light">Dark</Button>{' '}
-              <Button variant="outline-info">Light</Button>{' '}
-            
-              </div>
-                <span>{user?.name}</span>
-            </Nav>
-          </Navbar.Collapse>
-          </div>
-        </div>
-        </Container>
-      </Navbar>
+     
+
+
+
+     <div className="navbar bg-primary text-primary-content">
+      <Link><img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI3dbts_3EryxmZ4IGDw6fYNWYwsnFuhjAF1h2Dk-jfg&s" alt="" /></Link>
+        <Link className="btn btn-ghost normal-case text-xl" to="/">Learning English</Link>
+        <Link className="btn btn-ghost normal-case text-xl" to="/home">Home</Link>
+      <Link className="btn btn-ghost normal-case text-xl" to="/course">Courses</Link>
+      <Link className="btn btn-ghost normal-case text-xl" to="/faq">FAQ</Link>
+      <Link className="btn btn-ghost normal-case text-xl" to="/blog">Blog</Link>
+      <Link className="btn btn-ghost normal-case text-xl" to="/login">Login</Link>
+      <Link className="btn btn-ghost normal-case text-xl" to="/register">Register</Link>
+       </div>
+          
+
     </div>
   );
 };

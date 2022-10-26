@@ -10,7 +10,7 @@ import { AuthContext } from '../../UserContext/UserContext';
 
 
 const Login = () => {
-const {googlePropup} = useContext(AuthContext)
+const {googlePropup, githubPopup} = useContext(AuthContext)
 
     const handleSubmit = (event) =>{
         event.preventDefault()
@@ -24,6 +24,17 @@ const {googlePropup} = useContext(AuthContext)
       googlePropup()
       .then(result =>{
         const user = result.user;
+        console.log(user)
+      })
+      .then(error=>{
+        console.error('error', error)
+      })
+    }
+
+    const handleGithubPopup = () =>{
+      githubPopup()
+      .then(result=>{
+        const user = result.user ;
         console.log(user)
       })
       .then(error=>{
@@ -49,7 +60,7 @@ const {googlePropup} = useContext(AuthContext)
      <div>
         <div>
         <Button onClick={handleGooglePopup} variant="outline-success">Login with Google</Button>{' '}
-      <Button variant="outline-warning">Login with Github </Button>{' '}
+      <Button onClick={handleGithubPopup} variant="outline-warning">Login with Github </Button>{' '}
         </div>
      <Link to='/register'><span>Register now </span></Link>
      </div>

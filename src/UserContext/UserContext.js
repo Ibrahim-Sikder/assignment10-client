@@ -1,4 +1,4 @@
-import {  getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {  getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { createContext } from 'react';
 import app from '../firbase/firebase.init';
@@ -9,18 +9,21 @@ const auth = getAuth(app)
 const UserContext = ({children}) => {
 
 const googleProvider = new GoogleAuthProvider()
-
+const githubProvider = new GithubAuthProvider()
 
     const googlePropup = () =>{
         signInWithPopup(auth, googleProvider)
         
      }
 
+     const githubPopup = () => {
+        signInWithPopup(auth, githubProvider)
+     }
 
 
 
 
-    const authInfo = {googlePropup}
+    const authInfo = {googlePropup, githubPopup}
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

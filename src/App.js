@@ -8,6 +8,7 @@ import Blog from './components/Blog/Blog';
 import Question from './components/Question/Question';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   const router = createBrowserRouter([
@@ -42,6 +43,10 @@ function App() {
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '*',
+          element: <NotFound></NotFound>
         }
       ]
     }

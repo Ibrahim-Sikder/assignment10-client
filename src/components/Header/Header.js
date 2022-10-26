@@ -1,11 +1,15 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from 'react-bootstrap/Button';
 import './Header.css'
+import { useContext } from "react";
+import { AuthContext } from "../../UserContext/UserContext";
+
 const Header = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -28,8 +32,9 @@ const Header = () => {
               <div>
               <Button variant="outline-light">Dark</Button>{' '}
               <Button variant="outline-info">Light</Button>{' '}
+            
               </div>
-
+                <span>{user?.name}</span>
             </Nav>
           </Navbar.Collapse>
           </div>

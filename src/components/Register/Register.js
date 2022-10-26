@@ -8,26 +8,27 @@ import { AuthContext } from "../../UserContext/UserContext";
 
 const Register = () => {
 
-  
+
   const {createUser} = useContext(AuthContext)
+
     const handleSubmit = event => {
+
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
         const photoURL = form.photo.value;
-        const email = form.password.value;
+        const email = form.email.value;
         const password = form.password.value;
         console.log(name, photoURL, email, password)
 
         createUser(email, password)
         .then(result=>{
-          const user = result.user ;
-          console.log(user)
+          const user = result.user; 
+          console.log(user);
         })
-        .then(error=>{
+        .catch(error=>{
           console.error('error', error)
         })
-
     }
 
 
@@ -56,8 +57,8 @@ const Register = () => {
           />
         </Form.Group>
         <div>
-          <Link to="/register">
-            <span>Register now </span>
+          <Link to="/login">
+            <span>Login now </span>
           </Link>
         </div>
         <Button variant="info" type="submit">

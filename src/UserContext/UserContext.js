@@ -1,4 +1,4 @@
-import {  getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {  createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { createContext } from 'react';
 import app from '../firbase/firebase.init';
@@ -20,10 +20,13 @@ const githubProvider = new GithubAuthProvider()
         signInWithPopup(auth, githubProvider)
      }
 
+     const createUser = (email, password) =>{
+        createUserWithEmailAndPassword(auth, email, password)
+     }
 
 
 
-    const authInfo = {googlePropup, githubPopup}
+    const authInfo = {googlePropup, githubPopup, createUser}
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

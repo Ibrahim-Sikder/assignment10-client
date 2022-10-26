@@ -25,8 +25,9 @@ const {googlePropup, githubPopup} = useContext(AuthContext)
       .then(result =>{
         const user = result.user;
         console.log(user)
+        
       })
-      .then(error=>{
+      .catch(error=>{
         console.error('error', error)
       })
     }
@@ -37,7 +38,7 @@ const {googlePropup, githubPopup} = useContext(AuthContext)
         const user = result.user ;
         console.log(user)
       })
-      .then(error=>{
+      .catch(error=>{
         console.error('error', error)
       })
     }

@@ -6,11 +6,12 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 
 const Register = () => {
-
+    const {error, setError} = useState(null)
     const {providerLogin, githubLogin, createUser} = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider()
@@ -22,7 +23,9 @@ const Register = () => {
             const user = result.user;
             console.log(user)
         })
-        .catch(error => console.error(error))
+        .catch(error =>{
+            console.error('error', setError(error.message))
+        })
     }
 
     const handleGithubSignIn = () => {
@@ -30,6 +33,7 @@ const Register = () => {
         .then( result => {
             const user = result.user;
             console.log(user);
+            setError(error.message)
         })
         .catch( error => console.error(error))
     }
@@ -48,6 +52,7 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             form.reset();
+            setError(error.message)
         })
         .catch(error => console.error(error))
     }
@@ -76,9 +81,7 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name="password" type="password" placeholder="Password" required />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
+                  
                     <p>Already have An Acoount, please <Link to='/login'>Log In</Link></p>
                     <Button variant="primary" type="submit">
                         Register

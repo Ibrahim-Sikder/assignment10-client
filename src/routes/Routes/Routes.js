@@ -8,6 +8,7 @@ import Categories from "../../pages/Categories/Categories";
 import FAQ from "../../pages/FAQ/FAQ";
 import Home from "../../pages/Home/Home";
 import MainHome from "../../pages/MainHome/MainHome";
+import NotFound from "../../pages/NotFound/NotFound";
 import Programming from "../../pages/Programming/Programming";
 
 export const routes = createBrowserRouter([
@@ -62,6 +63,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/*',
+                element: <NotFound></NotFound>
             }
             
         ]

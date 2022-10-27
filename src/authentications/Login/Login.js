@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 
 const Login = () => {
-
+    const {error, setError} = useState(null)
     const {signIn} = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -23,7 +24,10 @@ const Login = () => {
             form.reset();
             navigate('/')
         })
-        .catch( error => console.error(error))
+        .catch( error => {
+            console.error(error)
+            setError(error.message)
+        })
     }
 
     return (
@@ -41,9 +45,7 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+               
                 <p>if you haven't any account, please <Link to='/register'>Create An Acoount</Link></p>
                 <Button variant="primary" type="submit">
                     Log In

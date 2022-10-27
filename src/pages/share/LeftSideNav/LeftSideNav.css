@@ -1,0 +1,10 @@
+.language-category a{
+    text-decoration: none;
+    border: .3px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.language-category a:hover{
+    box-shadow: 1px 1px 2px gray;
+}

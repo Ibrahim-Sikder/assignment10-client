@@ -1,7 +1,14 @@
-#Live website link : https://learning-english-313a4.web.app/
-#Client side code link : https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Ibrahim-Sikder
+## Live website link : https://learning-english-313a4.web.app/
+# #Client side code link : https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Ibrahim-Sikder
 
-
+## Server side code link : https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Ibrahim-Sikder
+ 
+ ### I use 
+ 1. Bootstrap and react bootstrap
+ 2.React icons 
+ 3.React router dom 
+ 4.Firebase Authentication 
+ 5.Server side data loaded 
 
 
 
